@@ -35,7 +35,6 @@ namespace RedisStreamDemo
             {
                 try
                 {
-                    // Example telemetry data
                     var fields = new Dictionary<string, string>
                     {
                         { "temperature", random.Next(20, 100).ToString() },
@@ -50,7 +49,7 @@ namespace RedisStreamDemo
                     Console.WriteLine($"[Producer] Total messages sent: {count}");
 
                     // Wait before sending next message
-                    await Task.Delay(1000, token);
+                    await Task.Delay(10000, token);
                 }
                 catch (OperationCanceledException)
                 {
@@ -60,7 +59,7 @@ namespace RedisStreamDemo
                 catch (Exception ex)
                 {
                     Console.WriteLine($"[Producer] Error: {ex.Message}");
-                    await Task.Delay(2000, token); // wait before retrying
+                    await Task.Delay(2000, token); 
                 }
             }
         }
